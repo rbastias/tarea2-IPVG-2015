@@ -1,5 +1,5 @@
 <%Set Conn= Server.CreateObject("ADODB.connection")
-Conn.Open = "dsn=mantencion;uid=invitado;pwd=pass;"
+Conn.Open = "dsn=dsnalumnos;uid=invitado;pwd=2015;"
 	RUT = REQUEST.QUERYSTRING("RUT") 		
 	NOMBRES = REQUEST.QUERYSTRING("NOMBRES")
 	MAIL = REQUEST.QUERYSTRING("MAIL")
@@ -8,13 +8,14 @@ Conn.Open = "dsn=mantencion;uid=invitado;pwd=pass;"
 	
 	
 	SQL = "INSERT INTO mantencion.dbo.alumnos " & _
-				"(RUT, NOMBRES, MAIL) " & _
+				"(RUT, NOMBRES, MAIL, DIRECCION) " & _
 				"VALUES " & _
-				"('" & RUT & "', '" & NOMBRES & "', '" & CORREO & "')" 
+				"('" & RUT & "', '" & NOMBRES & "', '" & CORREO & "', '" DIRECCION "')" 
 			Conn.execute(SQL)
 			RUT = ""
 			NOMBRES = ""
 			MAIL = ""
+			DIRECCION = ""
 	end if
 %>
 
@@ -24,7 +25,7 @@ Conn.Open = "dsn=mantencion;uid=invitado;pwd=pass;"
 <script language="javascript">
 function volver()
 {
-	document.form1.action="mantenedor1.asp"
+	document.form1.action="O2-mantenedor1.asp"
 	document.form1.submit();
 }
 </script>
@@ -34,7 +35,7 @@ function volver()
 
 <body>
 
-<form method="get" action="mantenedor2.asp" name="form1">
+<form method="get" action="O2-mantenedor2.asp" name="form1">
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#c0c0c0">
              
     <tr align="center" valign="middle"> 
@@ -50,6 +51,12 @@ function volver()
                 
                 </font></b></td>
             </tr>
+  <tr align="center" valign="middle">
++              <td height="25" colspan="6" nowrap bordercolor="#FFFFFF" bgcolor="#FFFFFF"><b><font face="Arial, Helvetica, sans-serif" size="1"><font face="Verdana, Arial, Helvetica, sans-serif">DIRECCION</font> 
++                <input type="text" name="DIRECCION" size="60" maxlength="50" class="texto">              
++                
++                </font></b></td>
++            </tr>
           </table>
 		  <input type="submit" value="Insertar">
 		  <input type="button" value="Volver" onclick="volver()">
