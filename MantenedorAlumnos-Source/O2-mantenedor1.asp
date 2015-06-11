@@ -14,7 +14,7 @@ SQL = "SELECT RUT, NOMBRE, MAIL " & _
 </head>
 
 <body>
-<form method="get" action="mantenedor2.asp" name="form1">
+<form method="get" action="O2-mantenedor2.asp" name="form1">
  <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr align="center" valign="middle"> 
               <td width="10%" height="10" bgcolor="#ffffff"></td>
